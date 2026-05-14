@@ -3,4 +3,6 @@ export function parsedData(data) {
   JSON.parse(data).map((item) => {
     takenData.push({});
   });
+
+  return takenData;
 }
