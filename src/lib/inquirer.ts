@@ -2,10 +2,11 @@ import { select, confirm, input } from "@inquirer/prompts";
 import options from "./options-choices";
 import type { PromptValues } from "../types";
 import colors from "ansi-colors";
+import { colorConsole } from "../console/colors";
 
 /**
  * Takes the console prompts and return the answers
- * @returns
+ * @returns {PromptValues | void} The values can be evaluates to any CLI
  */
 export async function promptHandler(): Promise<PromptValues | void> {
   try {
@@ -18,7 +19,7 @@ export async function promptHandler(): Promise<PromptValues | void> {
     const depsConfirm = await confirm(options.deps);
     const finishConfirm = await confirm(options.finish);
     if (!finishConfirm) {
-      console.log(colors.bgMagenta("Installation cancelled..."));
+      colorConsole("Installation cancelled", "exit");
       return;
     }
     return {
@@ -29,7 +30,7 @@ export async function promptHandler(): Promise<PromptValues | void> {
       finishConfirm,
     };
   } catch (error) {
-    console.log(`Something went wrong: ${error}`);
+    colorConsole(`Something wen wrong: ${error}`, "error");
     return;
   }
 }
