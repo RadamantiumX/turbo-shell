@@ -3,17 +3,33 @@
  */
 const options = {
   pkg_manager: {
-    message: "",
-    choices: [],
+    message: "Select a package manager",
+    choices: [
+      {
+        name: "npm",
+        value: "npm",
+        description: "Most popular and standard",
+      },
+      {
+        name: "pnpm",
+        value: "pnpm",
+        description: "Fastest and huge storage",
+      },
+      {
+        name: "yarn",
+        value: "yarn",
+        description: "Adding more perfomance",
+      },
+    ],
   },
   pkg: {
-    message: "",
+    message: "Enter the package/dependency name",
   },
   deps: {
-    message: "",
+    message: "It's a DEV dependency?",
   },
   finish: {
-    message: "",
+    message: "Want to continue with the installation?",
   },
 };
 
