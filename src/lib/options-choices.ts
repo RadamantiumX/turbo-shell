@@ -23,7 +23,8 @@ const options = {
     ],
   },
   pkg: {
-    message: "Enter the package/dependency name",
+    message:
+      "Enter the package/dependency name (spaces separation for multiples installations)",
   },
   deps: {
     message: "It's a DEV dependency?",

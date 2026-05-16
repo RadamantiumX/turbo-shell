@@ -1,7 +1,6 @@
 import { select, confirm, input } from "@inquirer/prompts";
 import options from "./options-choices";
 import type { PromptValues } from "../types";
-import colors from "ansi-colors";
 import { colorConsole } from "../console/colors";
 
 /**
