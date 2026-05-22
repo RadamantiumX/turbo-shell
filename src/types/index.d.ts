@@ -8,4 +8,4 @@ export interface PromptValues {
 
 export type State = "success" | "loading" | "exit" | "error";
 
-export type PackagesManager = "npm install" | "pnpm add" | "yarn add";
+export type PackageManager = "npm install" | "pnpm add" | "yarn add";
