@@ -4,7 +4,7 @@
   "description": "This a public library for manage the package installing on monorepos.",
   "main": "index.js",
   "scripts": {
-    "test": "vitest",
+    "test": "cross-env PROJECT=mock --env-file=.env vitest",
     "prepare": "husky",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "@types/node": "^25.8.0",
+    "cross-env": "^10.1.0",
     "eslint": "^9.39.4",
     "globals": "^17.5.0",
     "husky": "^9.1.7",
