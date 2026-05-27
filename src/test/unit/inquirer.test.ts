@@ -3,6 +3,7 @@ import { promptHandler } from "../../lib/inquirer";
 import { select, input, confirm } from "@inquirer/prompts";
 import { mockInquirerReturn } from "../mock/mocking-values";
 import options from "../../lib/options-choices";
+import { mockedOptions } from "../mock/mocking-values";
 // Mocking the @inquirer/prompts used methods
 vi.mock("@inquirer/prompts", () => ({
   select: vi.fn(),
@@ -13,8 +14,8 @@ vi.mock("@inquirer/prompts", () => ({
 describe("promptHandler", () => {
   it("should proccess correctly the line user interface", async () => {
     // Mocked the currents values
-    vi.mocked(select).mockResolvedValue("api");
-    vi.mocked(select).mockResolvedValue("npm");
+    vi.mocked(select).mockResolvedValueOnce("api");
+    vi.mocked(select).mockResolvedValueOnce("npm");
     vi.mocked(input).mockResolvedValue("inquirer");
     vi.mocked(confirm).mockResolvedValue(true);
     vi.mocked(confirm).mockResolvedValue(true);
@@ -24,7 +25,7 @@ describe("promptHandler", () => {
 
     // Expected with each used methods
     expect(select).toHaveBeenCalledWith(
-      expect.objectContaining(options.ws_folders),
+      expect.objectContaining(mockedOptions.ws_folders),
     );
     expect(select).toHaveBeenCalledWith(
       expect.objectContaining(options.pkg_manager),

@@ -1,5 +1,9 @@
+import "dotenv/config";
 import { select, confirm, input } from "@inquirer/prompts";
 import options from "./options-choices";
+
+import { mockedOptions } from "../test/mock/mocking-values";
+
 import type { PromptValues } from "../types";
 import { colorConsole } from "../console/colors";
 import { PromptError } from "../common/errors";
@@ -10,7 +14,13 @@ import { PromptError } from "../common/errors";
  */
 export async function promptHandler(): Promise<PromptValues | void> {
   try {
-    const selectFolder = await select(options.ws_folders);
+    // Only if the TEST is running --> "mockedOptions" contains a mocked values
+    // "options.ws_folders" ==> []
+    const selectFolder = await select(
+      process.env.NODE_ENV === "test"
+        ? mockedOptions.ws_folders
+        : options.ws_folders,
+    );
     const selectPkgManager = await select(options.pkg_manager);
     const inputPkg = await input(options.pkg);
     const depsConfirm = await confirm(options.deps);

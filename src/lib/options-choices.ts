@@ -5,21 +5,7 @@
 const options: any = {
   ws_folders: {
     message: "Select a workspace folder",
-    choices:
-      process.env.PROJECT !== "mock"
-        ? []
-        : [
-            {
-              name: "api",
-              value: "api",
-              description: "mocked api folder",
-            },
-            {
-              name: "client",
-              value: "client",
-              description: "mocked client folder",
-            },
-          ],
+    choices: [],
   },
   pkg_manager: {
     message: "Select a package manager",
