@@ -1,18 +1,15 @@
 import "dotenv/config";
 import { select, confirm, input } from "@inquirer/prompts";
 import options from "./options-choices";
-
 import { mockedOptions } from "../test/mock/mocking-values";
-
-import type { PromptValues } from "../types";
-import { colorConsole } from "../console/colors";
 import { PromptError } from "../common/errors";
+import type { PromptValues } from "../types";
 
 /**
  * Takes the console prompts and return the answers
- * @returns {PromptValues | void} The values can be evaluates to any CLI
+ * @returns {PromptValues | unknown} The values can be evaluates to any CLI
  */
-export async function promptHandler(): Promise<PromptValues | void> {
+export async function promptHandler(): Promise<PromptValues | unknown> {
   try {
     // Only if the TEST is running --> "mockedOptions" contains a mocked values
     // "options.ws_folders" ==> []
@@ -25,10 +22,7 @@ export async function promptHandler(): Promise<PromptValues | void> {
     const inputPkg = await input(options.pkg);
     const depsConfirm = await confirm(options.deps);
     const finishConfirm = await confirm(options.finish);
-    if (!finishConfirm) {
-      colorConsole("Installation cancelled", "exit");
-      return;
-    }
+
     return {
       selectFolder,
       selectPkgManager,
