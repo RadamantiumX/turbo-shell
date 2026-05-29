@@ -1,6 +1,6 @@
 import { spawn } from "node:child_process";
-import type { PackageManager } from "../types";
-import { optionsCofig } from "./spawn-options";
+// import type { PackageManager } from "../types";
+import { optionsCofig } from "./options-spawn";
 import { TR_CMD } from "../constants";
 import { SubProcessError, NodeChildProcessError } from "../common/errors";
 import type Stream from "node:stream";
@@ -31,18 +31,18 @@ export function getWorkSpaceFolders(): Stream.Readable | null {
 /**
  * With this function can be execute the installation of the package/s, with the selected package manager
  * Run inside of the stdout callback of the main Spawn Process *getWorkSpaceFolders()*
- * @param { PackageManager } command Current installation command from each package
- * @param { string } args Here must be the list or single package
- * @param { string } flags Modifier, must be specfy the Workspace folder and type of dependency
+ * @param { string} command Current installation command from each package
+ * @param { string } first_args Here must be the list or single package
+ * @param { string } second_args Modifier, must be specfy the Workspace folder and type of dependency
  * @returns { void }
  */
 export function onFinishPrompts(
-  command: PackageManager,
-  args: string,
-  flags: string,
+  command: string,
+  first_args: string,
+  second_args: string,
 ): void {
   try {
-    const cliSpawn = spawn(command, [args, flags], optionsCofig);
+    const cliSpawn = spawn(command, [first_args, second_args], optionsCofig);
 
     cliSpawn.stderr?.on("error", (error) => {
       throw new NodeChildProcessError(`Error on Child Process: ${error}`);
