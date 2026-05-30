@@ -9,3 +9,9 @@ export interface PromptValues {
 export type State = "success" | "loading" | "exit" | "error";
 
 export type PackageManager = "npm install" | "pnpm add" | "yarn add";
+
+export type Statement = {
+  first?: string | undefined;
+  second?: string | undefined;
+  third?: string | undefined;
+};
