@@ -59,12 +59,12 @@ export const mockCommandReturn = [
   },
   {
     first: "pnpm add",
-    second: "",
-    third: "",
+    second: "-D tsup",
+    third: "--filter package",
   },
   {
-    first: "npm i",
-    second: "",
-    third: "",
+    first: "yarn workspace",
+    second: "api -D",
+    third: "inquirer",
   },
 ];
