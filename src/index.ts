@@ -41,5 +41,6 @@ export async function wsMainInterface(data: any) {
     return;
   } catch (error) {
     colorConsole(`${error}`, "error");
+    return;
   }
 }
