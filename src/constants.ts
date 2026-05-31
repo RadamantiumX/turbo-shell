@@ -7,3 +7,5 @@ export const TR_CMD = {
   flag: "--output=json",
   jq: `| jq -r ".packages.items"`,
 };
+
+export const ON_TEST = "viper-test";
