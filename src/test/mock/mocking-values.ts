@@ -51,6 +51,8 @@ export const mockingCommandArgs = [
   },
 ];
 
+export const mockNode = "node -v";
+
 export const mockCommandReturn = [
   {
     first: "npm i",
