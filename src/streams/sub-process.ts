@@ -42,7 +42,7 @@ export function getWorkSpaceFolders(): Stream.Readable | null {
  * @param { string } second_args Modifier, must be specfy the Workspace folder and type of dependency
  * @returns { void }
  */
-export function onFinishPrompts(
+export function exeStatementPrompt(
   command: string,
   first_args: string,
   second_args: string,
