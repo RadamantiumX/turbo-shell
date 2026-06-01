@@ -1,8 +1,9 @@
 /**
  * Inquirer/Prompt Config options
  */
+import type { InquirerConfig } from "../types";
 
-const options = {
+const options: InquirerConfig = {
   ws_folders: {
     message: "Select a workspace folder",
     choices: [],

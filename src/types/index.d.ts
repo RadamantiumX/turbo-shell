@@ -15,3 +15,29 @@ export type Statement = {
   second?: string | undefined;
   third?: string | undefined;
 };
+
+export type Choices = {
+  name: string;
+  value: string;
+  description: string;
+};
+
+export type InquirerConfig = {
+  ws_folders: {
+    message: string;
+    choices: Choices[];
+  };
+  pkg_manager: {
+    message: string;
+    choices: Choices[];
+  };
+  pkg: {
+    message: string;
+  };
+  deps: {
+    message: string;
+  };
+  finish: {
+    message: string;
+  };
+};
