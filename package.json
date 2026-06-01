@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=viper-test vitest",
+    "build": "cross-env NODE_ENV=production",
     "prepare": "husky",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
