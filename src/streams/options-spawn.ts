@@ -17,7 +17,7 @@ import type { SpawnOptions } from "node:child_process";
 - timeout <number> In milliseconds the maximum amount of time the process is allowed to run. Default: undefined.
 - killSignal <string> | <integer> The signal value to be used when the spawned process will be killed by timeout or abort signal. Default: 'SIGTERM'.
  */
-export const optionsCofig: SpawnOptions = {
+export const optionsConfig: SpawnOptions = {
   stdio: ["pipe"],
   shell: true,
 };

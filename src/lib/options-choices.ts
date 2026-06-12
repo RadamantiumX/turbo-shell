@@ -2,11 +2,12 @@
  * Inquirer/Prompt Config options
  */
 import type { InquirerConfig } from "../types";
+import { mockedOptions } from "../test/mock/mocking-values";
 
 const options: InquirerConfig = {
   ws_folders: {
     message: "Select a workspace folder",
-    choices: [],
+    choices: mockedOptions.ws_folders.choices,
   },
   pkg_manager: {
     message: "Select a package manager",

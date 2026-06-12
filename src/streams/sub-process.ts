@@ -1,8 +1,8 @@
 import "dotenv/config";
 import { spawn } from "node:child_process";
 // import type { PackageManager } from "../types";
-import { optionsCofig } from "./options-spawn";
-import { TR_CMD, ON_TEST } from "../constants";
+import { optionsConfig } from "./options-spawn";
+// import { TR_CMD, ON_TEST } from "../constants";
 import { SubProcessError, NodeChildProcessError } from "../common/errors";
 import { mockNode } from "../test/mock/mocking-values";
 import type Stream from "node:stream";
@@ -17,9 +17,10 @@ import type Stream from "node:stream";
 export function getWorkSpaceFolders(): Stream.Readable | null {
   try {
     const cliSpawn = spawn(
-      process.env.NODE_ENV === ON_TEST ? mockNode : TR_CMD.ls,
-      [TR_CMD.flag, TR_CMD.jq],
-      optionsCofig,
+      // process.env.NODE_ENV === ON_TEST ? mockNode : TR_CMD.ls,
+      // [TR_CMD.flag, TR_CMD.jq],
+      mockNode,
+      optionsConfig,
     );
 
     cliSpawn.stderr?.on("error", (error) => {
@@ -48,7 +49,7 @@ export function exeStatementPrompt(
   second_args: string,
 ): void {
   try {
-    const cliSpawn = spawn(command, [first_args, second_args], optionsCofig);
+    const cliSpawn = spawn(command, [first_args, second_args], optionsConfig);
 
     cliSpawn.stderr?.on("error", (error) => {
       throw new NodeChildProcessError(`Error on Child Process: ${error}`);
