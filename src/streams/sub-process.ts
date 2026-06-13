@@ -47,7 +47,7 @@ export function exeStatementPrompt(
   command: string,
   first_args: string,
   second_args: string,
-): void {
+) {
   try {
     const cliSpawn = spawn(command, [first_args, second_args], optionsConfig);
 
@@ -55,7 +55,7 @@ export function exeStatementPrompt(
       throw new NodeChildProcessError(`Error on Child Process: ${error}`);
     });
 
-    return;
+    return cliSpawn.stdout;
   } catch (error) {
     throw new SubProcessError(`Error on Process: ${error}`);
   }

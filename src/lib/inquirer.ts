@@ -32,6 +32,6 @@ export async function promptHandler(): Promise<PromptValues | unknown> {
       finishConfirm,
     };
   } catch (error) {
-    throw new PromptError(`Unexpected error on console prompt: ${error}`);
+    throw new PromptError(`${error}`);
   }
 }
