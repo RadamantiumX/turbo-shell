@@ -19,6 +19,7 @@ export function colorConsole(message: string, state: State): void {
         console.log(colors.bgYellow(message));
         break;
       case "exit":
+        console.clear();
         console.log(colors.bgBlue(message));
         break;
       case "error":
