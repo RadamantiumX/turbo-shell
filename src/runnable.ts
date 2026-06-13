@@ -41,14 +41,22 @@ export async function monoRepoPackageManager(data: any) {
       depsConfirm,
     );
 
-    exeStatementPrompt(
+    const finalStmt = exeStatementPrompt(
       cmdStatment?.first as string,
       cmdStatment.second as string,
       cmdStatment.third as string,
     );
 
+    finalStmt?.on("end", () => {
+      colorConsole("Success on Installation", "success");
+    });
+
     return;
-  } catch (error) {
+  } catch (error: string | undefined | any) {
+    if (error.toString().includes("ExitPromptError")) {
+      colorConsole("Bye bye 👋", "exit");
+      return;
+    }
     colorConsole(`${error}`, "error");
     return;
   }
