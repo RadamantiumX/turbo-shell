@@ -2,7 +2,7 @@
 import "dotenv/config";
 import { getWorkSpaceFolders, exeStatementPrompt } from "./streams/sub-process";
 import { colorConsole } from "./console/colors";
-// import { parsedStreamData } from "./common/parsed";
+import { parsedStreamData } from "./common/parsed";
 import { promptHandler } from "./lib/inquirer";
 import { commandAssembly } from "./common/command";
 import type { PromptValues } from "./types/index";
@@ -16,13 +16,7 @@ turbo?.on("data", monoRepoPackageManager);
 
 export async function monoRepoPackageManager(data: any) {
   try {
-    console.log(
-      process.env.NODE_ENV === "viper-test"
-        ? "Test is running"
-        : "must be other thing...",
-    );
-    console.log(data.toString());
-    // parsedStreamData(data);
+    parsedStreamData(data);
     const {
       selectFolder,
       selectPkgManager,
@@ -31,7 +25,7 @@ export async function monoRepoPackageManager(data: any) {
       finishConfirm,
     } = (await promptHandler()) as PromptValues;
     if (!finishConfirm) {
-      colorConsole("Exit from the assistant", "exit");
+      colorConsole("Exit from the assistant 👋", "exit");
       return;
     }
     const cmdStatment = commandAssembly(

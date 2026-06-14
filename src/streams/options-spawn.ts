@@ -18,6 +18,6 @@ import type { SpawnOptions } from "node:child_process";
 - killSignal <string> | <integer> The signal value to be used when the spawned process will be killed by timeout or abort signal. Default: 'SIGTERM'.
  */
 export const optionsConfig: SpawnOptions = {
-  stdio: ["pipe"],
+  stdio: ["overlapped"],
   shell: true,
 };
