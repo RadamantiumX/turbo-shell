@@ -10,7 +10,7 @@
     "dev": "cross-env NODE_ENV=viper-test tsx src/index.ts",
     "dev:build": "cross-env NODE_ENV=viper-test node dist/index.cjs",
     "test": "cross-env NODE_ENV=viper-test vitest",
-    "build": "cross-env NODE_ENV=production tsup src",
+    "build": "tsup src --env.NODE_ENV prod",
     "ci:publish": "npm build && changeset publish --access public",
     "release": "changeset",
     "prepare": "husky",

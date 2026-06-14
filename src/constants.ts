@@ -9,3 +9,4 @@ export const TR_CMD = {
 };
 
 export const ON_TEST = "viper-test";
+export const ON_PROD = "prod";
