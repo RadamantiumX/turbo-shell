@@ -15,6 +15,7 @@ import type Stream from "node:stream";
  */
 export function getWorkSpaceFolders(): Stream.Readable | null {
   try {
+    // Default vale on ENV = "prod"
     const cliSpawn = spawn(
       process.env.NODE_ENV !== ON_PROD ? mockNode : TR_CMD.ls,
       [TR_CMD.flag, TR_CMD.jq],
